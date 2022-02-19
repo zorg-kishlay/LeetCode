@@ -1,4 +1,5 @@
 class Solution:
+    # O(N+P) N is no of courses and P is the prerequsites(i.e edges)
     def canFinish(self, numCourses: int,
                   prerequisites: List[List[int]]) -> bool:
         # Using DFS
