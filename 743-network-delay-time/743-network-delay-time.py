@@ -18,11 +18,8 @@ class Solution:
         visited = set()
         result = 0
 
-        while min_heap:
+        while min_heap and len(visited)<n:
             weight, vertex = heapq.heappop(min_heap)
-            if vertex in visited:
-                continue
-            # to avoid loops
             visited.add(vertex)
             result = max(result, weight)
 
