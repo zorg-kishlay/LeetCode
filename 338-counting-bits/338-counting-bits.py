@@ -9,10 +9,7 @@ class Solution:
         offset =1
         
         for i in range(1, n+1):
-            if offset * 2 == i:
-                offset = i
-            
-            dp[i] = 1 + dp[i - offset]
+            dp[i] = dp[i // 2] + i%2
         
         
         return dp
