@@ -1,3 +1,5 @@
+# Time:- O(amount * len(coins))
+# space :- O(amount)
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         coinMin = [float("inf") for i in range(amount+1)]
