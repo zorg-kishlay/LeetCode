@@ -20,7 +20,7 @@ class Solution:
             
             for perm in perms:
                 perm.append(removed)
-                result.append(perm)
+            result.extend(perms)
             nums.append(removed)
         return result
         
