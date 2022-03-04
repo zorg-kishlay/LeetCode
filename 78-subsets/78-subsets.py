@@ -11,7 +11,8 @@ class Solution:
         def backtrack(i): # i is for the index of the list
             
             if i >= len(nums):
-                result.append(subset.copy()) # since we will be modifying the subset list
+                #result.append(subset.copy()) # since we will be modifying the subset list
+                result.append(subset[:])
                 return
             
             # when current element is included
