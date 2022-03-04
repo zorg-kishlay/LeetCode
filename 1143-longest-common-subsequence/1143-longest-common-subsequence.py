@@ -19,3 +19,5 @@ class Solution:
         return lcs[-1][-1]
         
         
+        # O(N*M)
+        
