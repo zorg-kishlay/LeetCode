@@ -13,7 +13,7 @@ class Solution:
         # base case if root is none we return none
         
         if not root: # handles all cases where we remove the subtree
-            return None
+            return root
         
         if root.val>high: # if the current value is greater than high that means all values
             # to the right of current would also be greater than high
