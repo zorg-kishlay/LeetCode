@@ -20,7 +20,7 @@ class Solution:
             result+=1 # whatever we do we have are doing an operation
         
         
-        remainder = startValue-target # for cases where target<startvalue we can only do 1 operation i.e adding 1 to target
+       # remainder = startValue-target # for cases where target<startvalue we can only do 1 operation i.e adding 1 to target
         
-        return result+remainder
+        return result+startValue-target
         
