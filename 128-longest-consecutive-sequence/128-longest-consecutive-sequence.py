@@ -1,6 +1,7 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         
+        # O(N) space and time
         num_set = set()
         
         # adding all distinct numbers to the set
