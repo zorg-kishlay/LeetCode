@@ -2,21 +2,22 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         
         # O(N) space and time
-        # sliding window
         
-        substring_set = set()
-        left, result = 0, 0
+        seen = ''
+        max_len = 0
         
-        for right in range(len(s)):
+        for ch in s:
+            # ch not in the seen add it to it
+            if ch not in seen:
+                seen+=ch
             
-            # while we encounter a duplicate character
-            # we will pop it out of the set and increase the left pointer
-            while s[right] in substring_set:
-                substring_set.remove(s[left])
-                left += 1
-            # not a duplicate we add it to the set
-            substring_set.add(s[right])
-            # check if current substring length is greater or not
-            result = max(result, right-left+1)
+            else:
+                # if ch is in seen we need to move past it
+                # that is we take seen after the first occurence of ch and then append the newely appeared
+                # character to it 
+                seen = seen[seen.index(ch)+1:]+ch
+            
+            max_len=max(max_len,len(seen))
         
-        return result
+        return max_len
+                
