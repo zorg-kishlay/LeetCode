@@ -15,7 +15,7 @@ class Solution:
         
         while idx>=0 and nums[idx]>=nums[idx+1]:
             idx-=1
-        
+
         
         if idx>=0:
             larger_idx = len(nums)-1
