@@ -5,18 +5,26 @@ class Solution(object):
         :rtype: int
         """
         
-        i=0
-        j=len(height)-1
-        capacity=0
+        start = 0
+        end = len(height)-1
+        capacity = 0
         
-        while(i<j):
+        # we will traverse using 2 pointers capacity = height(min of the 2 pointers water will overflow otherwise) * width(between 2 pointers)
+        
+        while(start<end):
+            width = end-start # calculating the y axis
+            current_capacity = min(height[start],height[end]) * width
             
-            width=j-i
-            # since the max height of the container would be the lower amongst the two
-            capacity=max(capacity,width*min(height[i],height[j]))
-            if(height[i]<height[j]):
-                i+=1
+            capacity = max(capacity,current_capacity)
+            
+            # we will increase pointer based on the lower height
+            if height[start]<height[end]:
+                start+=1
+            
             else:
-                j-=1
-                
+                end-=1
+        
+        
         return capacity
+    
+    # Time O(N)
