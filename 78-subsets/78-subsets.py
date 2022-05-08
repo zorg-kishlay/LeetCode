@@ -1,31 +1,25 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         
-        # O(n*2^n) we will have 2^n subsets and worst case of size n so n*2^n
+        result =[]
         
-        # decision tree with 2 choices either do or not do there is no try
-        
-        result = []
-        subset = []
-        
-        def backtrack(i): # i is for the index of the list
-            
-            if i >= len(nums):
-                #result.append(subset.copy()) # since we will be modifying the subset list
-                result.append(subset[:])
+        def helper(arr,idx,slate):
+            # base case for leaf node
+            if idx==len(arr):
+                result.append(slate[:])
                 return
             
-            # when current element is included
-            subset.append(nums[i])
-            backtrack(i+1)
+            # for internal worker node there are 2 options choose item at index or not choose
             
-            # when current element is not included
-            # since we have already added it so best choice is to remove it
-            
-            subset.pop()
-            backtrack(i+1)
+            slate.append(arr[idx])
+            helper(arr,idx+1,slate)
+            slate.pop() # remove whatever added so that the parent will have the access to correct base case
+            # not choosing element at idx
+            helper(arr,idx+1,slate)
         
-        backtrack(0)
+        
+        helper(nums,0,[])
         return result
+            
             
         
