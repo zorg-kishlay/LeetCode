@@ -16,17 +16,19 @@ class Solution:
             "9" : "wxyz",
         }
         
-        def track(index,current):
-            if len(current) == len(digits):
-                result.append(current)
+        def track(index,slate):
+            if len(slate) == len(digits):
+                result.append("".join(slate))
                 return
             
             for ch in number_map[digits[index]]:
-                track(index+1,current+ch)
+                slate.append(ch)
+                track(index+1,slate)
+                slate.pop()
         
         
         if digits:
-            track(0,"")
+            track(0,[])
         
         return result
         
