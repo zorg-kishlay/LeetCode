@@ -1,34 +1,41 @@
 class Solution:
-    
-    def quickselect(self,nums,start,end,index):
-        # code executed at leaf when we have only 1 element left
+    # O(N) solution
+        
+    def quickselect(self,nums,start,end,k):
+        
+        # base case:- for leaf node
         if start==end:
             return
         
-        # Lomuto's partioning
-        pivot= random.randint(start,end) # choosing a random pivot
-        # swap pivot elemnt with start so that we can compare from start+1
-        nums[pivot],nums[start]=nums[start],nums[pivot]
-        lower=start
-        for num in range(start+1,end+1):
-            if nums[num]<=nums[start]:
-                lower+=1
-                nums[lower],nums[num]=nums[num],nums[lower]
-        # to take start to its correct position i.e a position where it is sorted
-        nums[start],nums[lower]=nums[lower],nums[start]
+        # Lomuto's partioning logc here
+        pivot = random.randint(start,end) # to choose a pivot element
         
-        if lower==index:
+        # swap pivot with start element so that we can use it to check and swap
+        nums[pivot],nums[start]=nums[start],nums[pivot]
+        marker_index = start # to mark the index where element at pivot should be
+        
+        for idx in range(start+1,end+1):
+            # if less then we swap it and place it in the starting region
+            if nums[idx]<=nums[start]:
+                marker_index+=1
+                nums[marker_index],nums[idx]=nums[idx],nums[marker_index]
+                
+            
+        # bring pivot element back to its correct position
+        nums[start],nums[marker_index]=nums[marker_index],nums[start]
+        
+        if k ==marker_index: # lucky case we have sorted array for kth element
             return
         
-        elif lower<index:
-            self.quickselect(nums,lower+1,end,index)
+        elif k<marker_index: #we know we need to look for k in the first half
+            self.quickselect(nums,start,marker_index-1,k)
         else:
-            self.quickselect(nums,start,lower-1,index)
-            
-        
-        
+            self.quickselect(nums,marker_index+1,end,k)
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        index = len(nums)-k
+        # logic here is that kth largest element will be present at n-kth position
+        indek=len(nums)-k
+        self.quickselect(nums,0,len(nums)-1,indek)
+        return nums[indek]
         
-        self.quickselect(nums,0,len(nums)-1,index)
-        return nums[index]
+        
+        
