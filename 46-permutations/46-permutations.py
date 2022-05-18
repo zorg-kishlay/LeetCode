@@ -1,26 +1,34 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         
-        result =[]
+        result = []
         
-        # base case when we have just one 1 element
-        if len(nums) == 1:
-            return [nums[:]] # since we need to return a list of list
+        # helper to be called recursively to generate permutations
+        def helper(s,index,slate):
+            # base case for leaf nodes
+            
+            if index == len(s):
+                result.append(slate[:])
+                return
+            
+            # internal node workers
+            # check for choices
+            
+            # choices would be from index to length i.e next element
+            
+            for pick in range(index,len(s)):
+                s[pick],s[index]=s[index],s[pick]
+                slate.append(s[index])
+                helper(s,index+1,slate)
+                slate.pop()
+                s[pick],s[index]=s[index],s[pick] # not doing this will result in duplicate entries
         
-        for idx in range(len(nums)):
-            
-            # we remove the first element to check for a smaller solution
-            # so for [1,2,3] we remove 1 and send [2,3]
-            removed = nums.pop(0)
-            
-            perms = self.permute(nums)
-            
-            # so perms will have [2,3] and [3,2] now we need to append
-            # the popped value to both of them to have the complete permutation
-            
-            for perm in perms:
-                perm.append(removed)
-            result.extend(perms)
-            nums.append(removed)
+        
+        helper(nums,0,[])
         return result
+    
+    
+    # Time and Space:- O(n!*n)
+                
+            
         
