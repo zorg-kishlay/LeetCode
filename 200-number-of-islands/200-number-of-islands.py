@@ -1,39 +1,30 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         
-        if grid is None or len(grid)==0:
-            return 0
-        island_count = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    # 2 steps to be done
-                    # 1. Increase island count
-                    # 2. Recursively covert adjacent 1's to 0's
-                    island_count+=1
-                    self.change1_to_0(grid, i, j)
-                 
+        # looks like an alteration of the connected components problem
         
-        return island_count
+        islands = 0
         
-    
-    def change1_to_0(self,grid, i, j):
-        # 1. row<0
-        # 2. row> grid lenght
-        # 3. coulmn < 0
-        # 4. column > grid[0] length
-        # 5 if grid[i][j] ==0
+        rows = len(grid)
+        cols = len(grid[0])
         
-        if i < 0 or i>= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j]=='0':
-            return
+        def modify_grid(i,j):
+            if i< 0 or j< 0 or i>= rows or j>= cols or grid[i][j]=='0':
+                return
+            
+            grid[i][j]='0'
+            for diffx,diffy in [(-1,0),(1,0),(0,-1),(0,1)]:
+                modify_grid(i+diffx,j+diffy)
         
-        # now we know at i,j is 1
-        grid[i][j] = '0'
-        # now for all left right bottom positions
-        
-        self.change1_to_0(grid, i-1, j)
-        self.change1_to_0(grid, i+1, j)
-        
-        self.change1_to_0(grid, i, j-1)
-        self.change1_to_0(grid, i, j+1)
-        
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j]=='1':
+                    
+                    # basically when we find a new component we inc island count
+                    islands+=1
+                    modify_grid(i,j)
+                    
+                    # there could have been 2 approaches 1 we maintain a visted array
+                    # here we will just modify the neighbours of our rows to 0 so that don't count as
+                    # separate islands
+        return islands
