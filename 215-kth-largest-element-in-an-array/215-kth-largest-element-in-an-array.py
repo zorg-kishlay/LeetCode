@@ -1,5 +1,6 @@
 class Solution:
     
+    # Time O(N)
     def quickselect(self,nums,start,end,k):
         
         # base case
