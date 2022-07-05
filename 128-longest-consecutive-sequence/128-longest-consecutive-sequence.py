@@ -1,36 +1,46 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         
-        # O(N) space and time
         num_set = set()
         
-        # adding all distinct numbers to the set
+        # add all elements to the set to get rid of duplicate elements
         for num in nums:
             num_set.add(num)
         
-        longest_result = 0
-        # now for each number we just need to check if its consecutive elements are present in
-        # the set or not
+        longest_seq=0 # to store the final result
+        
+        # we need to check for 2 sequences 
+        # 1. decreasing subsequence with current number being at the end
+        # 2. Increasing with current number at start
+        # adding both of them will cover the part where current number is in b/w
+        
+        
         
         for num in nums:
-            idx,current_longest=1,1
-            # for [0,3,7,2,5,8,4,6,0,1]
-            # lets have 1 then 0 is present and that length is added to current_longest
-            while num-idx in num_set:
-                current_longest+=1
-                num_set.remove(num-idx) # to ensure same numbers are not counted twice
-                idx+=1
+            index,current_len=1,1 # considering element as first
             
-            idx=1
-            
-            # we also need to account for the values greater than the current value
-            while num+idx in num_set:
-                current_longest+=1
-                num_set.remove(num+idx)
-                idx+=1
-            
-            longest_result = max(longest_result,current_longest)
-        
-        return longest_result
+            while num-index in num_set:
+                current_len+=1
                 
+                num_set.remove(num-index)# to ensure we don't count it again
+                index+=1
+            
+            # when we reach here we get length of sbsequence of elements less than current
+            
+            # now for elements greater than num
+            index=1
+            
+            while num+index in num_set:
+                current_len+=1
+                num_set.remove(num+index)
+                index+=1
+            
+            longest_seq = max(longest_seq,current_len)
+        
+        
+        return longest_seq
+            
+            
+                
+            
         
