@@ -11,6 +11,8 @@ class Node:
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         
+        # basically a level order traversal problem you just need to handle the level mapping of next
+        # pointers
         if not root:
             return root
         
