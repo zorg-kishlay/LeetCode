@@ -1,67 +1,31 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         
-        # create a visited array so that we need to revisit a node
-        visited = [[False for value in row] for row in grid]
-        size = 0
+        result = 0
+        rows = len(grid)
+        cols = len(grid[0])
         
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if visited[i][j]:
-                    continue
-                curr_size = self.traversenodes(grid,i,j,visited)
-                size = max(size,curr_size )
+        # typical dfs problem
         
-        return size
-        
-    
-    
-    def traversenodes(self, grid,i,j,visited):
-        
-        # array to keep track of nodes to be visited
-        nodesToExplore=[[i,j]]
-        countForCurrentNode = 0
-        
-        while len(nodesToExplore):
-            current = nodesToExplore.pop()
-            i = current[0]
-            j = current[1]
+        def dfs(i,j):
             
-            # if we revisit a node in current setup and don't
-            # continue might cause infinite loop
-            if visited[i][j]:
-                continue
+            if i<0 or i>=rows or j<0 or j>=cols or grid[i][j]==0:
+                return 0
             
-            # mark node as visited
-            visited[i][j] = True
+            current=1
+            grid[i][j]=0
             
-            # no point in going forward
-            if grid[i][j] == 0:
-                continue
-            
-            countForCurrentNode += 1
-            # get all unvisted neighbours for current node
-            unvistedNodes = self.getUnvisitedNegihbours(grid,i,j,visited)
-            
-            for nodes in unvistedNodes:
-                nodesToExplore.append(nodes)
+            for (x,y) in [(0,1),(0,-1),(1,0),(-1,0)]:
+                current+= dfs(i+x,j+y)
+            return current
         
-        return countForCurrentNode
-            
-    
-    def getUnvisitedNegihbours(self,grid, i,j,visited):
         
-        unvistedNodes = []
-        if i>0 and not visited[i-1][j]:
-            unvistedNodes.append([i-1,j])
+        for i in range(rows):
+            for j in range(cols):
+                #if grid[i][j]==1:
+                #current=dfs(i,j)
+                result=max(result,dfs(i,j))
         
-        if j>0 and not visited[i][j-1]:
-            unvistedNodes.append([i,j-1])
         
-        if i<len(grid)-1 and not visited[i+1][j]:
-            unvistedNodes.append([i+1,j])
+        return result
         
-        if j<len(grid[0])-1 and not visited[i][j+1]:
-            unvistedNodes.append([i,j+1])
-        
-        return unvistedNodes
