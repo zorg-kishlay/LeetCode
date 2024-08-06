@@ -13,6 +13,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0103-binary-tree-zigzag-level-order-traversal](https://github.com/zorg-kishlay/LeetCode/tree/master/0103-binary-tree-zigzag-level-order-traversal) |
+| [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/zorg-kishlay/LeetCode/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
 ## Binary Tree
@@ -25,6 +26,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0139-word-break](https://github.com/zorg-kishlay/LeetCode/tree/master/0139-word-break) |
+| [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
 ## Hash Table
 |  |
@@ -51,6 +53,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0098-validate-binary-search-tree](https://github.com/zorg-kishlay/LeetCode/tree/master/0098-validate-binary-search-tree) |
+| [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/zorg-kishlay/LeetCode/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
 ## Design
@@ -64,5 +67,10 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Matrix
 |  |
 | ------- |
+| [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
+## Union Find
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 <!---LeetCode Topics End-->
