@@ -16,6 +16,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/zorg-kishlay/LeetCode/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
+| [0753-open-the-lock](https://github.com/zorg-kishlay/LeetCode/tree/master/0753-open-the-lock) |
 ## Binary Tree
 |  |
 | ------- |
@@ -28,15 +29,18 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0139-word-break](https://github.com/zorg-kishlay/LeetCode/tree/master/0139-word-break) |
 | [0200-number-of-islands](https://github.com/zorg-kishlay/LeetCode/tree/master/0200-number-of-islands) |
 | [0733-flood-fill](https://github.com/zorg-kishlay/LeetCode/tree/master/0733-flood-fill) |
+| [0753-open-the-lock](https://github.com/zorg-kishlay/LeetCode/tree/master/0753-open-the-lock) |
 ## Hash Table
 |  |
 | ------- |
 | [0139-word-break](https://github.com/zorg-kishlay/LeetCode/tree/master/0139-word-break) |
+| [0753-open-the-lock](https://github.com/zorg-kishlay/LeetCode/tree/master/0753-open-the-lock) |
 ## String
 |  |
 | ------- |
 | [0139-word-break](https://github.com/zorg-kishlay/LeetCode/tree/master/0139-word-break) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/zorg-kishlay/LeetCode/tree/master/0297-serialize-and-deserialize-binary-tree) |
+| [0753-open-the-lock](https://github.com/zorg-kishlay/LeetCode/tree/master/0753-open-the-lock) |
 ## Dynamic Programming
 |  |
 | ------- |
